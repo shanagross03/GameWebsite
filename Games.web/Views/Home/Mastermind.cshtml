@@ -1,0 +1,56 @@
+﻿
+<div class="modal fade" data-bs-backdrop="static" id="level-modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Mastermind</h1>
+            </div>
+            <div class="modal-body">
+                <h4> Welcome to Mastermind!</h4>
+                To ensure your utmost enjoyment, please choose your game preference below.
+                <br />
+                <br />
+                Best of luck!
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary game-level" name="doubles" data-bs-dismiss="modal">Allow doubles</button>
+                <button class="btn btn-primary game-level" name="no-doubles" data-bs-dismiss="modal">Play without doubles</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body style="background-color: #182c6e">
+    <div class="container text-center">
+        <h1 style="color: white; font-size:45px">MASTERMIND</h1>
+        <div id="show-setup" class="mb-5 mt-4">
+            <h3 class="text-white" id="message"></h3>
+        </div>
+        <div class="row; d-inline-block; choiceColors" style="margin-bottom:30px">
+            <button style="width:35px; height:35px; margin-right:5px; background-color:red"> </button>
+            <button style="width:35px; height:35px; margin-right:5px; background-color:orange"> </button>
+            <button style="width:35px; height:35px; margin-right:5px; background-color:yellow"> </button>
+            <button style="width:35px; height:35px; margin-right:5px; background-color:green"> </button>
+            <button style="width:35px; height:35px; margin-right:5px; background-color:blue"> </button>
+            <button style="width:35px; height:35px; margin-right:5px; background-color:purple"> </button>
+        </div>
+
+        @for (int i = 1; i <= 40; i += 4)
+        {
+            <div class="mt-2 align-items-baseline">
+                <label class="text-white">@((i / 4) + 1))</label>
+                <button id=@i disabled style="width:35px; height:35px; margin-right:5px" class="guess"></button>
+                <button id=@(i +1) disabled style="width:35px; height:35px; margin-right:5px" class="guess"></button>
+                <button id=@(i +2) disabled style="width:35px; height:35px; margin-right:5px" class="guess"></button>
+                <button id=@(i +3) disabled style="width:35px; height:35px; margin-right:5px" class="guess"></button>
+                <button id="check-@i" disabled style="width:55px; height:35px; margin-right:7px; background-color:white" class="check">Check</button>
+                <label id="label-@i"></label>
+                <span id="span-@i"></span>
+            </div>
+        }
+    </div>
+</body>
+
+@section Scripts {
+    <script src="~/js/mastermind.js"></script>
+}

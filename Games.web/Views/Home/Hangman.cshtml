@@ -1,0 +1,25 @@
+﻿<body style="background-color: #2d493b">
+    <div style=" font-family: cursive">
+    <h1 class="text-center mb-5 mt-5" style="font-size: 55px; color: lightgreen">HANGMAN</h1>
+    <div class="text-center mt-3">
+        <div>
+            @{
+                List<char> letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToList();
+            }
+            @for (int i = 0; i < letters.Count; i++)
+            {
+                <button class="button-letter" style="background-color: lightgreen; width:45px;  font-size: 28px;height:60px; border-radius: 10px;">@letters[i]</button>
+            }
+        </div>
+        <div id="letters" style="margin-top:140px" class=" d-flex justify-content-center">
+        </div>
+        <div class="container mt-5 pt-5" id="game-out">
+        </div>
+        <h1 style="color:lightgreen" id="message"></h1>
+    </div>
+    </div>
+
+</body>
+@section Scripts {
+    <script src="~/js/hangman.js"></script>
+}
