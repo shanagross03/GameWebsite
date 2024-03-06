@@ -1,4 +1,7 @@
 $(() => {
+    
+    formGameBoard()
+
     new bootstrap.Modal($("#level-modal")[0]).show();
 
     let allColors = ['rgb(255, 0, 0)', 'rgb(0, 128, 0)', 'rgb(128, 0, 128)', 'rgb(255, 165, 0)', 'rgb(255, 255, 0)', 'rgb(0, 0, 255)']
@@ -9,6 +12,7 @@ $(() => {
     let roundGuess = [];
 
     enableNextRow();
+   
 
     $(".game-level").on("click", function () {
         for (let i = 0; i < 4; i++) {
@@ -22,14 +26,14 @@ $(() => {
         currentColor = $(this).css('background-color')
     });
 
-    $(".guess").on("click", function () {
+    $("body").on("click", '.guess', function () {
         $(this).css('background-color') != whiteRGB && currentColor === "" ? currentColor = $(this).css('background-color') : "";
         $(this).css('background-color', currentColor)
         currentColor = "";
         shouldEnableCheckButton();
     });
 
-    $(".check").on("click", function () {
+    $("body").on("click", '.check', function () {
         $(`#check-${idIndex}`).hide();
         $(".guess").prop('disabled', true);
 
@@ -95,6 +99,22 @@ $(() => {
 
         for (let i = 0; i < 4; i++) {
             $(`#${idIndex + i}`).prop('disabled', false)
+        }
+    }
+
+
+    function formGameBoard() {
+        for (let i = 1; i <= 40; i += 4) {
+            $("#game-body").append(`<div class="mt-2 align-items-baseline">
+                <label class="text-white">${(i / 4) + .75})</label>
+                <button id=${i} disabled style="width:35px; height:35px; margin-right:5px" class="guess"></button>
+                <button id=${i + 1} disabled style = "width:35px; height:35px; margin-right:5px" class="guess" ></button >
+        <button id=${i + 2} disabled style = "width:35px; height:35px; margin-right:5px" class="guess" ></button >
+            <button id=${i + 3} disabled style = "width:35px; height:35px; margin-right:5px" class="guess" ></button >
+                <button id="check-${i}" disabled style="width:55px; height:35px; margin-right:7px; background-color:white" class="check">Check</button>
+                <label id="label-${i}"></label>
+                <span id="span-${i}"></span>
+            </div >`)
         }
     }
 });

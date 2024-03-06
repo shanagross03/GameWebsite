@@ -34,20 +34,8 @@
             <button style="width:35px; height:35px; margin-right:5px; background-color:blue"> </button>
             <button style="width:35px; height:35px; margin-right:5px; background-color:purple"> </button>
         </div>
-
-        @for (int i = 1; i <= 40; i += 4)
-        {
-            <div class="mt-2 align-items-baseline">
-                <label class="text-white">@((i / 4) + 1))</label>
-                <button id=@i disabled style="width:35px; height:35px; margin-right:5px" class="guess"></button>
-                <button id=@(i +1) disabled style="width:35px; height:35px; margin-right:5px" class="guess"></button>
-                <button id=@(i +2) disabled style="width:35px; height:35px; margin-right:5px" class="guess"></button>
-                <button id=@(i +3) disabled style="width:35px; height:35px; margin-right:5px" class="guess"></button>
-                <button id="check-@i" disabled style="width:55px; height:35px; margin-right:7px; background-color:white" class="check">Check</button>
-                <label id="label-@i"></label>
-                <span id="span-@i"></span>
-            </div>
-        }
+        <div id="game-body">
+        </div>
     </div>
 </body>
 
