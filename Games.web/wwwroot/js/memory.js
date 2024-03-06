@@ -30,10 +30,11 @@ $(() => {
 
         for (let i = 1; i <= 14; i++) {
             let name = matchesSet[Math.floor(Math.random() * matchesSet.length)]
-            matchesSet.splice(matchesSet.lastIndexOf(source), 1);
+            matchesSet.splice(matchesSet.lastIndexOf(name), 1);
 
             $(`#${i}`).attr('name', name)
         }
+    }
 
         function checkIfMatch() {
             if (flippedCards[0].attr('src') === flippedCards[1].attr('src')) {
@@ -42,6 +43,6 @@ $(() => {
                 flippedCards.forEach(b => b.removeClass("pic") && b.attr('src', "/images/backgroundbrown.png"))
                 $("#score").text(`${$("#div-pic").children().length}/7`)
             }
-        }
     };
+    
 })
