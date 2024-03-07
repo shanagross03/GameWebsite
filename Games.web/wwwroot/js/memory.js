@@ -19,6 +19,11 @@ $(() => {
 
         checkIfMatch();
 
+        if ($("#score").text() === '7/7') {
+            $("#div-pic").prepend(`<h1 style="color:white" class="text center"> You won!! You got all the matches in ${$("#rounds").text()} rounds! </h1>`)
+            return;
+        }
+
         flippedCards = [];
         $(".pic").attr('src', "/images/background.jpg");
         $("#rounds").text(+$("#rounds").text() + 1)
@@ -36,13 +41,14 @@ $(() => {
         }
     }
 
-        function checkIfMatch() {
-            if (flippedCards[0].attr('src') === flippedCards[1].attr('src')) {
+    function checkIfMatch() {
+        if (flippedCards[0].attr('src') === flippedCards[1].attr('src')) {
 
-                $("#div-pic").append(`<img src="${flippedCards[0].attr("src")}" style="width:100px; height:100px; margin-right:8px; object-fit: cover" />`)
-                flippedCards.forEach(b => b.removeClass("pic") && b.attr('src', "/images/backgroundbrown.png"))
-                $("#score").text(`${$("#div-pic").children().length}/7`)
-            }
+            $("#div-pic").append(`<img src="${flippedCards[0].attr("src")}" style="width:100px; height:100px; margin-right:8px; object-fit: cover" />`)
+            flippedCards.forEach(b => b.removeClass("pic") && b.attr('src', "/images/backgroundbrown.png"))
+            $("#score").text(`${$("#div-pic").children().length}/7`)
+
+        }
     };
-    
+
 })

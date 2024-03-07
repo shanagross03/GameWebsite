@@ -1,9 +1,9 @@
 $(() => {
     const wordsToChooseFrom = ['BEVERAGE', 'SYMPHONY', 'ATTITUDE', 'CONTROL', 'KETCHUP', 'SPRINKLE', 'FLOWER', 'MAGIC', 'COMPUTER', 'CEREAL', 'BRACELET', 'SLINKY', 'ELEPHANT'];
     const hangManWord = wordsToChooseFrom[Math.floor(Math.random() * wordsToChooseFrom.length)].split('')
-
     formSetUp();
-    console.log(hangManWord)
+
+    $("#outs").text('she')
 
     $("body").on("click", ".button-letter", function () {
 
@@ -12,7 +12,7 @@ $(() => {
 
         if (hangManWord.every(b => b != guessedLetter)) {
 
-            $("#game-out").append(`<button disabled class="rounded-circle" style="width:50px; height:50px; margin:5px; background-color: black; color:lightgreen; font-size:30px">${$("#game-out").children().length + 1}</button>`)
+            $("#game-out").append(`<button disabled class="rounded-circle" style="width:50px; height:50px; margin:5px; background-color: black; color:lightgreen; font-size:30px">${$("#game-out").children().length}</button>`)
         }
 
         for (let i = 0; i < hangManWord.length; i++) {
