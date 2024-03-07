@@ -3,7 +3,6 @@ $(() => {
     const hangManWord = wordsToChooseFrom[Math.floor(Math.random() * wordsToChooseFrom.length)].split('')
     formSetUp();
 
-    $("#outs").text('she')
 
     $("body").on("click", ".button-letter", function () {
 
